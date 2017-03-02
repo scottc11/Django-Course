@@ -1,0 +1,13 @@
+del(array[0]) -> deletes object in array at given location
+
+len(array) -> returns the length of the given array
+
+range(1, 10) -> create an array in the given range
+
+for dog in arrayOfDogNames:
+  do something
+
+while age < 18:
+  do something
+
+dogs = {"Fido": 8, "Sally": 17, "Sean": 2}

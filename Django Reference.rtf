@@ -1,0 +1,145 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fmodern\fcharset0 Courier;\f1\fmodern\fcharset0 Courier-Bold;\f2\fnil\fcharset0 AndaleMono;
+\f3\fnil\fcharset0 Menlo-Bold;\f4\fnil\fcharset0 Avenir-Book;}
+{\colortbl;\red255\green255\blue255;\red47\green255\blue18;\red14\green60\blue38;\red255\green255\blue255;
+\red13\green47\blue29;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\margl1440\margr1440\vieww21220\viewh9880\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 DJANGO STUFF\
+\
+GETTING A PROJECT STARTED\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 \cb0 \CocoaLigature0 django-admin startproject <project-name>\cf0 \cb1 \CocoaLigature1   --> when in the directory of your choice, create a new django project\
+\
+\cf2 \cb0 \CocoaLigature0 python3 manage.py runserver\cf0 \cb1 \CocoaLigature1   --> test your django project by running a server on port 8000\
+\
+\
+
+\f1\b r'^  -->
+\f0\b0  This is a 'regex' expression in Python which checks to see if something matches what follows it (ex. r'^matchThis')\
+\
+\
+\
+\
+\
+\
+
+\f1\b\fs48 \ul DJANGO APPS
+\f0\b0\fs24 \ulnone \
+\
+\
+Create a new app template-->  
+\f2 \cf2 \cb0 \CocoaLigature0 python3 manage.py startapp <app-name> 
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+	- Be sure to add the <app-name> to the 
+\f1\b 'settings.py'
+\f0\b0  file - within the INSTALLED_APPS array\
+\
+Model Fields Documentation --> {\field{\*\fldinst{HYPERLINK "https://docs.djangoproject.com/en/1.10/ref/models/fields/"}}{\fldrslt https://docs.djangoproject.com/en/1.10/ref/models/fields/}}\
+\
+MIGRATIONS -->  
+\f2 \cf2 \cb0 \CocoaLigature0 python3 manage.py migrate
+\f0 \cf0 \cb1 \CocoaLigature1  --> Migrations are required for every django project which wishes to use a database.\
+\
+creates a file in your project which will add any new 'models' to the database --> 
+\f2 \cf2 \cb0 \CocoaLigature0 python3 manage.py makemigrations
+\f0 \cf0 \cb1 \CocoaLigature1  THEN call 
+\f2 \cf2 \cb0 \CocoaLigature0 python3 manage.py migrate
+\f0 \cf0 \cb1 \CocoaLigature1  to 'APPLY' all mihgrations to the database\
+\
+\
+\
+\
+\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\b\fs48 \cf0 \ul \ulc0 URLS and REDIRECTS
+\f0\b0\fs24 \ulnone \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\b \cf0 from django.shortcuts import render, redirect 
+\f0\b0 --> import statement for redirect library\
+\
+return render(request, 'posts/create.html', \{'error': 'ERROR: please provide both a title and a url to create a post.'\})\
+\
+return redirect('home') --> This will redirect the user to a given URL name\
+\
+\
+\
+\
+\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\b\fs48 \cf0 \ul \ulc0 USER/ADMIN AUTHENTICATION
+\fs28 \ulc0 \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\b0\fs24 \cf0 \ulnone Documentation --> {\field{\*\fldinst{HYPERLINK "https://docs.djangoproject.com/en/1.10/topics/auth/"}}{\fldrslt https://docs.djangoproject.com/en/1.10/topics/auth/}}\
+\
+Create an Admin account -->  
+\f2 \cf2 \cb0 \CocoaLigature0 python3 manage.py createsuperuser
+\f0\fs28 \cf0 \cb1 \CocoaLigature1 \
+
+\f1\b \ul \
+\pard\pardeftab720\sl320\sa280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://docs.djangoproject.com/en/1.10/topics/auth/default/#django.contrib.auth.decorators.login_required"}}{\fldrslt 
+\f3\fs24 \cf3 \cb4 \expnd0\expndtw0\kerning0
+\ulnone \outl0\strokewidth0 \strokec3 login_required()}}
+\f4\b0\fs24 \cf5 \cb4 \expnd0\expndtw0\kerning0
+\ulnone \outl0\strokewidth0 \strokec5  does the following:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl380\partightenfactor0
+\ls1\ilvl0\cf5 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\'95	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec5 If the user isn\'92t logged in, redirect to {\field{\*\fldinst{HYPERLINK "https://docs.djangoproject.com/en/1.10/ref/settings/#std:setting-LOGIN_URL"}}{\fldrslt 
+\f3\b \cf3 \strokec3 settings.LOGIN_URL}}, passing the current absolute path in the query string. 
+\f1\b\fs28 \cf0 \cb1 \kerning1\expnd0\expndtw0 \ul \ulc0 \outl0\strokewidth0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \ulc0 \
+\
+\
+VIRTUAL ENVIROMENT
+\f0\b0\fs24 \ulnone \
+\
+
+\f1\b Create a virtual enviroment -->
+\f0\b0  
+\f2 \cf2 \cb0 \CocoaLigature0 virtualenv venv 
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+
+\f1\b Create virtual enviroment [OPTION]
+\f0\b0 -->  
+\f2 \cf2 \cb0 \CocoaLigature0 virtualenv --no-site-packages venv
+\f0 \cf0 \cb1 \CocoaLigature1  --> Runnig this will not include any packages that are installed globally\
+\
+
+\f1\b DELETE virtual enviroment  
+\f0\b0 --> Just delete its folder\
+\
+
+\f1\b Activate A virtual enviroment --> 
+\f2\b0 \cf2 \cb0 \CocoaLigature0 source <venv_name>/bin/activate
+\f1\b \cf0 \cb1 \CocoaLigature1 \
+
+\f0\b0 \
+
+\f1\b Deactivate the virtual enviroment  --> 
+\f2\b0 \cf2 \cb0 \CocoaLigature0 deactivate
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\
+\
+
+\f1\b\fs48 IMAGE DATABASE URLS -->
+\f0\b0\fs24   Section 4, lecture 34, Working with Images\
+\
+\
+}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<h1>HOME</h1>
+<a href="{% url 'posts:create' %}">New Post</a>
+<br>
+<br>
+
+{% for post in posts.all %}
+
+<a href="{{post.url}}"><h3>{{post.title}}</h3></a>
+
+<form method="POST" action="{% url 'posts:upvote' post.id %}" >
+  {% csrf_token %}
+  <button type="submit" name="button" value="UP">UP</button>
+</form>
+
+<h4>{{post.votes_total}}</h4>
+<form method="POST" action="{% url 'posts:downvote' post.id %}" >
+  {% csrf_token %}
+  <button type="submit" name="button" value="DOWN">DOWN</button>
+</form>
+<h5>{{post.pub_date}} By {{post.author.username}}</h5>
+<hr>
+
+{% endfor %}
+{% endblock %}
