@@ -6,4 +6,5 @@ app_name = 'accounts'  # use this variable to organise the HTML files ex. {% url
 urlpatterns = [
     url(r'^signup/', views.signup, name='signup'),
     url(r'^login/', views.loginView, name='login'),
+    url(r'^logout/', views.logoutView, name='logout'),
 ]
